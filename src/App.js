@@ -114,7 +114,7 @@ const getDefaultParamsValue = () => {
 }
 
 // on connection failed
-
+// eslint-disable-next-line
 function onConnectionFailed() {
     console.error('Connection Failed!');
 } 
@@ -174,10 +174,7 @@ function App() {
     addTrack(test.localTrack)
   }, [addTrack, domain, room]);
   
-  const disconnect = useCallback(async(e)=>{
-
-  })
-
+  
   useEffect(() => {
     if(!conference) return
 
