@@ -4,7 +4,10 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import './App.css';
 import $ from 'jquery'
-import { Seat } from './components/Seat';
+import { FluentThemeProvider } from '@azure/communication-react';
+
+import { Stack } from '@fluentui/react';
+import { CallingComponents } from './components/CallingComponent';
 import { ConnectForm } from './components/ConnectForm';
 import { Audio } from './components/Audio';
 import useWindowSize from './hooks/useWindowSize'
@@ -196,15 +199,10 @@ function App() {
         { mainState === 'init' && <ConnectForm connect={connect} domain={domain} room={room} setRoom={setRoom} setDomain={setDomain} /> }
         { mainState === 'loading' && 'Loading' }
         { mainState === 'started' &&
-        <div style={{
-          height: '100vh', width: '100vw', maxHeight: '100vw', maxWidth: '100vh',
-          background: 'rgba(0, 100,100, 1)',
-          position: 'relative',
-          borderRadius: '100%'
-      }}>
+        <div >
         
         {
-          videoTracks.map((track, index) => <Seat track={track} index={index} length={videoTracks.length} key={track.getId()} />)
+          videoTracks.map((track, index) => <CallingComponents track={track} index={index} key={track.getId()} />)
         }
         {
           audioTracks.map((track, index) => <Audio track={track} index={index} key={track.getId()} />)
