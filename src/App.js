@@ -1,4 +1,5 @@
 /* global JitsiMeetJS config*/
+// eslint-disable-next-line
 
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import './App.css';
