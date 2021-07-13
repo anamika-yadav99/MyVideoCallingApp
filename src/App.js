@@ -4,7 +4,7 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import './App.css';
 import $ from 'jquery'
-import { FluentThemeProvider } from '@azure/communication-react';
+//import { FluentThemeProvider } from '@azure/communication-react';
 
 
 import {Seat} from './components/Seat';
@@ -213,7 +213,7 @@ function App() {
         {
           audioTracks.map((track, index) => <Audio track={track} index={index} key={track.getId()} />)
         }
-       <div id = 'controlbarstyle'> <CustomControlBarStylesExample/> </div>
+       
        </div>
        }
       
