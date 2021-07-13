@@ -6,9 +6,7 @@ import './App.css';
 import $ from 'jquery'
 import { FluentThemeProvider } from '@azure/communication-react';
 
-import { Stack } from '@fluentui/react';
-import { CallingComponents } from './components/CallingComponent';
-//import {CustomButtonsExample} from './components/controlbar;'
+
 import {Seat} from './components/Seat';
 import { ConnectForm } from './components/ConnectForm';
 import { Audio } from './components/Audio';
@@ -202,7 +200,12 @@ function App() {
         { mainState === 'init' && <ConnectForm connect={connect} domain={domain} room={room} setRoom={setRoom} setDomain={setDomain} /> }
         { mainState === 'loading' && 'Loading' }
         { mainState === 'started' &&
-        <div >
+        <div style={{
+          height: '100vh', width: '100vw', maxHeight: '100vw', maxWidth: '100vh',
+          background: 'rgba(255, 255, 255, 1)',
+          position: 'relative',
+          borderRadius: '100%'
+      }} >
         
         {
           videoTracks.map((track, index) => <Seat track={track} index={index} length={videoTracks.length} key={track.getId()} />)
