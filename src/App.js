@@ -8,9 +8,11 @@ import { FluentThemeProvider } from '@azure/communication-react';
 
 import { Stack } from '@fluentui/react';
 import { CallingComponents } from './components/CallingComponent';
+//import {CustomButtonsExample} from './components/controlbar'
 import { ConnectForm } from './components/ConnectForm';
 import { Audio } from './components/Audio';
 import useWindowSize from './hooks/useWindowSize'
+import {CustomButtonsExample} from './components/controlbar'
 
 import qs from 'qs'
 
@@ -110,7 +112,7 @@ const getDefaultParamsValue = () => {
   const params = document.location.search.length > 1 ? qs.parse(document.location.search.slice(1)) : {}
   debugger;
   return {
-    room: params.room ?? 'daily_standup',
+    room: params.room ?? 'enter-room-id',
     domain: params.domain ?? 'virtual-darbar.centralindia.cloudapp.azure.com',
     autoJoin: params.autojoin ?? false,
   }
@@ -209,9 +211,9 @@ function App() {
         }
         
        </div>}
-       
         
       </header>
+      <CustomButtonsExample/>
       </div>
   );
 }

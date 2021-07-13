@@ -1,6 +1,7 @@
 /* tslint:disable */
 // Copyright (c) Microsoft Corporation.
 // Licensed under the MIT license.
+ 
 import {
   CameraButton,
   ControlBar,
@@ -11,56 +12,37 @@ import {
   ScreenShareButton,
   VideoTile
 } from '@azure/communication-react';
-
+ 
 import { IContextualMenuProps, mergeStyles, Stack } from '@fluentui/react';
 import React, { useState } from 'react';
-
-export const CallingComponents = ({track }): JSX.Element => {
-  const exampleOptionsMenuProps: IContextualMenuProps = {
-    items: [
-      {
-        key: '1',
-        name: 'Choose Camera',
-        iconProps: { iconName: 'LocationCircle' },
-        onClick: () => alert('Choose Camera Menu Item Clicked!')
-      }
-    ]
-  };
  
+export const CallingComponents = ({track}) => {
+  
   const controlBarStyle = {
     root: {
       justifyContent: 'center'
     }
   };
-  const [videoButtonChecked, setVideoButtonChecked] = useState<boolean>(false);
-  const [audioButtonChecked, setAudioButtonChecked] = useState<boolean>(false);
-  const [screenshareButtonChecked, setScreenshareButtonChecked] = useState<boolean>(false);
-
+  
+  
+ 
   return (
-    <Stack className={mergeStyles({ height: '100%' })}>
+    <Stack className={mergeStyles({ height: '100%', width: '100%'})}>
       {/* GridLayout Component relies on the parent's height and width, so it's required to set the height and width on its parent. */}
       <div style={{ height: '30rem', width: '30rem', border: '1px solid' }}>
         <GridLayout>
-          <VideoTile isVideoReady={true} renderElement={<video 
-          style={{ flexShrink: 0 }} 
+          <VideoTile isVideoReady={true} 
+          renderElement= 
+          {<video 
+          style = {{ height:'100%', width: '100%'}}
           autoPlay={true} key={`track_${track.getId()}`} 
-          ref={(ref) => ref && track.attach(ref)} />} displayName={'Michael'}
+          ref={(ref) => ref && track.attach(ref)} />} 
+          
           
           />
         </GridLayout>
       </div>
-
-      {/* Control Bar with default set up */}
-      <ControlBar styles={controlBarStyle}>
-        <CameraButton checked={videoButtonChecked} onClick={() => setVideoButtonChecked(!videoButtonChecked)} />
-        <MicrophoneButton checked={audioButtonChecked} onClick={() => setAudioButtonChecked(!audioButtonChecked)} />
-        <ScreenShareButton
-          checked={screenshareButtonChecked}
-          onClick={() => setScreenshareButtonChecked(!screenshareButtonChecked)}
-        />
-        <OptionsButton menuProps={exampleOptionsMenuProps} />
-        <EndCallButton />
-      </ControlBar>
+ 
     </Stack>
   );
 };
