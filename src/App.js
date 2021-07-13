@@ -4,14 +4,14 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import './App.css';
 import $ from 'jquery'
-import { FluentThemeProvider } from '@azure/communication-react';
+//import { FluentThemeProvider } from '@azure/communication-react';
 
 
 import {Seat} from './components/Seat';
 import { ConnectForm } from './components/ConnectForm';
 import { Audio } from './components/Audio';
 import useWindowSize from './hooks/useWindowSize'
-import {CustomControlBarStylesExample} from './components/controlbar'
+//import {CustomControlBarStylesExample} from './components/controlbar'
 
 import qs from 'qs'
 
@@ -213,7 +213,7 @@ function App() {
         {
           audioTracks.map((track, index) => <Audio track={track} index={index} key={track.getId()} />)
         }
-       <div id = 'controlbarstyle'> <CustomControlBarStylesExample/> </div>
+       
        </div>
        }
       
