@@ -7,7 +7,6 @@
       "esnext"
     ],
     "allowJs": true,
-    "checkJs": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -21,14 +20,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "exclude": [
-    "node_modules",
-    "dist"
-  ],
   "include": [
-    "./src",
-    "./test",
-    "./*",
-    "./config"
+    "src"
   ]
 }
