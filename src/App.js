@@ -1,17 +1,14 @@
+  
 /* global JitsiMeetJS config*/
 // eslint-disable-next-line
 
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import './App.css';
 import $ from 'jquery'
-//import { FluentThemeProvider } from '@azure/communication-react';
-
-
-import {Seat} from './components/Seat';
+import { Seat } from './components/Seat';
 import { ConnectForm } from './components/ConnectForm';
 import { Audio } from './components/Audio';
 import useWindowSize from './hooks/useWindowSize'
-
 
 import qs from 'qs'
 
@@ -111,7 +108,7 @@ const getDefaultParamsValue = () => {
   const params = document.location.search.length > 1 ? qs.parse(document.location.search.slice(1)) : {}
   debugger;
   return {
-    room: params.room ?? 'enter-room-id',
+    room: params.room ?? 'daily_standup',
     domain: params.domain ?? 'virtual-darbar.centralindia.cloudapp.azure.com',
     autoJoin: params.autojoin ?? false,
   }
@@ -127,14 +124,11 @@ function hangup(){
   if(connection){
     if(track.getType() === 'video') removeVideoTrack(track)
     if(track.getType() === 'audio') removeAudioTrack(track)
-
   }
-
   return new Promise(resolve => {
     conference.on(JitsiMeetJS.events.conference.leave, () => resolve(conference) );
     conference.leave();
   })
-
 }*/
   
       
@@ -202,10 +196,10 @@ function App() {
         { mainState === 'started' &&
         <div style={{
           height: '100vh', width: '100vw', maxHeight: '100vw', maxWidth: '100vh',
-          background: 'rgba(255, 255, 255, 1)',
+          background: 'rgba(0, 100,100, 1)',
           position: 'relative',
           borderRadius: '100%'
-      }} >
+      }}>
         
         {
           videoTracks.map((track, index) => <Seat track={track} index={index} length={videoTracks.length} key={track.getId()} />)
@@ -213,17 +207,18 @@ function App() {
         {
           audioTracks.map((track, index) => <Audio track={track} index={index} key={track.getId()} />)
         }
+        
+       </div>}
        
-       </div>
-       }
-      
+        
       </header>
-      
       </div>
   );
 }
 
 export default App;
+
+
 
 
 
