@@ -8,11 +8,12 @@ import { FluentThemeProvider } from '@azure/communication-react';
 
 import { Stack } from '@fluentui/react';
 import { CallingComponents } from './components/CallingComponent';
-//import {CustomButtonsExample} from './components/controlbar'
+//import {CustomButtonsExample} from './components/controlbar;'
+import {Seat} from './components/Seat';
 import { ConnectForm } from './components/ConnectForm';
 import { Audio } from './components/Audio';
 import useWindowSize from './hooks/useWindowSize'
-import {CustomButtonsExample} from './components/controlbar'
+import {CustomControlBarStylesExample} from './components/controlbar'
 
 import qs from 'qs'
 
@@ -204,16 +205,17 @@ function App() {
         <div >
         
         {
-          videoTracks.map((track, index) => <CallingComponents track={track} index={index} key={track.getId()} />)
+          videoTracks.map((track, index) => <Seat track={track} index={index} length={videoTracks.length} key={track.getId()} />)
         }
         {
           audioTracks.map((track, index) => <Audio track={track} index={index} key={track.getId()} />)
         }
-        
-       </div>}
-        
+       <div id = 'controlbarstyle'> <CustomControlBarStylesExample/> </div>
+       </div>
+       }
+      
       </header>
-      <CustomButtonsExample/>
+      
       </div>
   );
 }
