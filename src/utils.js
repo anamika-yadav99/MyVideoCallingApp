@@ -20,5 +20,3 @@ export const getDistanceRatioForSeats = seats => {
   return 50 - width / 2 / fullWIdth * 100;
 };
 
-
-

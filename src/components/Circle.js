@@ -1,3 +1,4 @@
+  
 import React from 'react';
 export const Circle = ({ vertical, horizontal, size, ...props }) => (<div style={{
   position: 'absolute',
