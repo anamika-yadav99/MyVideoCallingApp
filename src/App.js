@@ -11,7 +11,7 @@ import {Seat} from './components/Seat';
 import { ConnectForm } from './components/ConnectForm';
 import { Audio } from './components/Audio';
 import useWindowSize from './hooks/useWindowSize'
-//import {CustomControlBarStylesExample} from './components/controlbar'
+
 
 import qs from 'qs'
 
