@@ -5,16 +5,17 @@ import {
   FluentThemeProvider,
   MicrophoneButton
 } from '@azure/communication-react';
-import { CallEndIcon } from '@fluentui/react-northstar';
 import React from 'react';
+import { CallEndIcon } from '@fluentui/react-northstar';
 
-export const CustomButtonsExample: () =>  JSX.Element = () => {
 
-  const controlBarStyle = {
+export const CustomControlBarStylesExample: () => JSX.Element = () => {
+   const controlBarStyle = {
     root: {
       justifyContent: 'center'
-    }}
-  const CustomEndCallButton: () => JSX.Element = () => {
+    }
+    };
+    const CustomEndCallButton: () => JSX.Element = () => {
     const customStyles = {
       root: {
         height: 'inherit',
@@ -29,10 +30,10 @@ export const CustomButtonsExample: () =>  JSX.Element = () => {
       },
       flexContainer: { flexFlow: 'row' }
     };
-
+ 
     
     
-
+ 
     return (
       <EndCallButton
         styles={customStyles}
@@ -50,9 +51,11 @@ export const CustomButtonsExample: () =>  JSX.Element = () => {
     );
   };
 
+  
+
   return (
     <FluentThemeProvider>
-      <ControlBar styles = {controlBarStyle}>
+      <ControlBar layout={'floatingBottom'}  styles={controlBarStyle}>
         <CameraButton />
         <MicrophoneButton />
         <CustomEndCallButton />
