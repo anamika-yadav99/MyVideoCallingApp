@@ -4,14 +4,16 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import './App.css';
 import $ from 'jquery'
-//import { FluentThemeProvider } from '@azure/communication-react';
 
 
+
+
+//import {CustomButtonsExample} from './components/controlbar;'
 import {Seat} from './components/Seat';
 import { ConnectForm } from './components/ConnectForm';
 import { Audio } from './components/Audio';
 import useWindowSize from './hooks/useWindowSize'
-
+import {CustomControlBarStylesExample} from './components/controlbar.tsx'
 
 import qs from 'qs'
 
@@ -127,14 +129,11 @@ function hangup(){
   if(connection){
     if(track.getType() === 'video') removeVideoTrack(track)
     if(track.getType() === 'audio') removeAudioTrack(track)
-
   }
-
   return new Promise(resolve => {
     conference.on(JitsiMeetJS.events.conference.leave, () => resolve(conference) );
     conference.leave();
   })
-
 }*/
   
       
@@ -200,12 +199,7 @@ function App() {
         { mainState === 'init' && <ConnectForm connect={connect} domain={domain} room={room} setRoom={setRoom} setDomain={setDomain} /> }
         { mainState === 'loading' && 'Loading' }
         { mainState === 'started' &&
-        <div style={{
-          height: '100vh', width: '100vw', maxHeight: '100vw', maxWidth: '100vh',
-          background: 'rgba(255, 255, 255, 1)',
-          position: 'relative',
-          borderRadius: '100%'
-      }} >
+        <div >
         
         {
           videoTracks.map((track, index) => <Seat track={track} index={index} length={videoTracks.length} key={track.getId()} />)
@@ -213,7 +207,7 @@ function App() {
         {
           audioTracks.map((track, index) => <Audio track={track} index={index} key={track.getId()} />)
         }
-       
+       <div id = 'controlbarstyle'> <CustomControlBarStylesExample/> </div>
        </div>
        }
       
@@ -228,7 +222,6 @@ export default App;
 
 
  /* 
-
 //disconnect();
 function disconnect(){
   console.log('disconnect!');
@@ -238,12 +231,10 @@ function disconnect(){
     connection.removeEventListener(
         JitsiMeetJS.events.connection.CONNECTION_FAILED,
         onConnectionFailed);}
-
   const hangup = new Promise((resolve)=> {
        
       if(connection){
         if(conference){
-
         }
       }
       function disconnect(){
@@ -255,11 +246,9 @@ function disconnect(){
         JitsiMeetJS.events.connection.CONNECTION_FAILED,
         onConnectionFailed);}
       connection.disconnect();
-
   });
   */
 /*
-
     const disconnect =  new Promise((resolve)=>{
       if (connection) {
         if (conference){
@@ -280,8 +269,6 @@ function disconnect(){
       localTrack.dispose();
       localAudioTrack.dispose();
      
-
-
       conference.leave();
       connection.disconnect();}*/
  
@@ -289,7 +276,6 @@ function disconnect(){
 const leave = async () => {
   const promiseBatch = localTrack.map((track) => !track.disposed && track.dispose());
   //const promiseBatch = localAudioTrack.map((track)=> !track.dispose && track.dispose());
-
   await Promise.all(promiseBatch);
   await conference.leave();
   function disconnect() {
@@ -300,9 +286,6 @@ const leave = async () => {
     connection.removeEventListener(
         JitsiMeetJS.events.connection.CONNECTION_FAILED,
         onConnectionFailed);}
-
   await connection.disconnect();}
   */
-
-
 

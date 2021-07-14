@@ -10,19 +10,19 @@ import { CallEndIcon } from '@fluentui/react-northstar';
 
 
 export const CustomControlBarStylesExample: () => JSX.Element = () => {
-   const controlBarStyle = {
+  const controlBarStyle = {
     root: {
       justifyContent: 'center'
     }
-    };
-    const CustomEndCallButton: () => JSX.Element = () => {
+  };
+  const CustomEndCallButton: () => JSX.Element = () => {
     const customStyles = {
       root: {
         height: 'inherit',
         background: 'darkorange',
         color: 'white',
         width: '10rem',
-        
+
       },
       rootHovered: {
         background: 'darkred',
@@ -30,10 +30,10 @@ export const CustomControlBarStylesExample: () => JSX.Element = () => {
       },
       flexContainer: { flexFlow: 'row' }
     };
- 
-    
-    
- 
+
+
+
+
     return (
       <EndCallButton
         styles={customStyles}
@@ -51,11 +51,11 @@ export const CustomControlBarStylesExample: () => JSX.Element = () => {
     );
   };
 
-  
+
 
   return (
     <FluentThemeProvider>
-      <ControlBar layout={'floatingBottom'}  styles={controlBarStyle}>
+      <ControlBar layout={'floatingBottom'} styles={controlBarStyle}>
         <CameraButton />
         <MicrophoneButton />
         <CustomEndCallButton />
