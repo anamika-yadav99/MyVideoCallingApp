@@ -22,4 +22,4 @@ virtual-darbar.centralindia.cloudapp.azure.com
 
 
 
-Reference : https://github.com/maxired/jitsi-standup
+Video Demo : https://youtu.be/Nd25mmvFBkQ
