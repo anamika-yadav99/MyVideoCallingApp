@@ -24,6 +24,7 @@ let room = null;
 let localTrack = [];
 let localAudioTrack = [] ;
 
+//connect to the room
 const connect = async ({ domain, room, config }) => {
   const connectionConfig = Object.assign({}, config);
   let serviceUrl = connectionConfig.websocket || connectionConfig.bosh;
@@ -45,6 +46,7 @@ const connect = async ({ domain, room, config }) => {
   }) 
 }
 
+//joins to the connection established
 const join = async ({ connection, room }) => {
   const conference = connection.initJitsiConference(room, {});
 
@@ -219,73 +221,4 @@ function App() {
 
 export default App;
 
-
-
- /* 
-//disconnect();
-function disconnect(){
-  console.log('disconnect!');
-    connection.removeEventListener(
-        JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED,
-        connection);
-    connection.removeEventListener(
-        JitsiMeetJS.events.connection.CONNECTION_FAILED,
-        onConnectionFailed);}
-  const hangup = new Promise((resolve)=> {
-       
-      if(connection){
-        if(conference){
-        }
-      }
-      function disconnect(){
-  console.log('disconnect!');
-    connection.removeEventListener(
-        JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED,
-        connection);
-    connection.removeEventListener(
-        JitsiMeetJS.events.connection.CONNECTION_FAILED,
-        onConnectionFailed);}
-      connection.disconnect();
-  });
-  */
-/*
-    const disconnect =  new Promise((resolve)=>{
-      if (connection) {
-        if (conference){
-          conference.leave();
-          connection.disconnect();
-        }
-      }
-      })*/ 
-      
-     
-    
-
-
-  
-
-/*
- function hangup(){
-      localTrack.dispose();
-      localAudioTrack.dispose();
-     
-      conference.leave();
-      connection.disconnect();}*/
- 
-/*
-const leave = async () => {
-  const promiseBatch = localTrack.map((track) => !track.disposed && track.dispose());
-  //const promiseBatch = localAudioTrack.map((track)=> !track.dispose && track.dispose());
-  await Promise.all(promiseBatch);
-  await conference.leave();
-  function disconnect() {
-    console.log('disconnect!');
-    connection.removeEventListener(
-        JitsiMeetJS.events.connection.CONNECTION_ESTABLISHED,
-        connect);
-    connection.removeEventListener(
-        JitsiMeetJS.events.connection.CONNECTION_FAILED,
-        onConnectionFailed);}
-  await connection.disconnect();}
-  */
 
